@@ -1,26 +1,3 @@
-# 🛠️ 各系统终端设置代理命令速查
-
-以下命令用于在当前终端会话中临时设置代理。请注意，**关闭终端窗口后设置会失效**。
-> **注意**：示例端口为 `10808`，请根据您实际使用的代理软件（如 Clash, V2Ray 等）修改端口号。通常 HTTP/HTTPS 端口为 7890, 10808, 10809 等。
-
----
-
-## 1. Windows PowerShell
-适用于 Windows 10/11 默认终端或 VS Code 终端。
-
-```powershell
-# 设置代理
-$env:http_proxy="[http://127.0.0.1:10808](http://127.0.0.1:10808)"
-$env:https_proxy="[http://127.0.0.1:10808](http://127.0.0.1:10808)"
-
-# 验证设置（查看变量）
-$env:http_proxy
-$env:https_proxy
-
-# 取消代理（清空变量）
-$env:http_proxy=""
-$env:https_proxy=""
-
 # 💡 原理解析：环境变量如何作用于 Git
 
 这是一个非常经典的网络配置场景，以下是关于 `$env:https_proxy` 如何协调 Git 与代理软件工作的详细解析。
