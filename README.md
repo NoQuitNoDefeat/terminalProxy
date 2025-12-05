@@ -35,7 +35,7 @@ set http_proxy=
 set https_proxy=
 ```
 
-### 3\. macOS / Linux (Bash & Zsh)
+## 3. macOS / Linux (Bash & Zsh)
 
 适用于 Mac 终端、Linux 服务器或 Windows WSL。
 
@@ -51,7 +51,7 @@ echo $http_proxy
 unset http_proxy https_proxy
 ```
 
-### 4\. Git 专属配置
+## 4. Git 专属配置
 
 如果您只需要加速 Git 操作（如 `git clone`），可以使用以下命令进行**永久配置**。
 
@@ -68,10 +68,3 @@ git config --global --unset https.proxy
 ```
 
 ***
-
-### 💡 建议
-在您粘贴之后，可以使用 GitHub 的 **"Preview" (预览)** 按钮查看效果。这段 Markdown 代码使用了层级标题和代码块高亮，在 GitHub 页面上显示会非常漂亮且易读。
-
-**下一步：**
-如果您希望让这个项目更完善，您是否需要我为您写一段关于 **"如何将这些命令封装成一个快捷脚本（Alias）"** 的说明？这样用户只需要输入一个单词（比如 `proxy_on`）就能开启代理。
-```
