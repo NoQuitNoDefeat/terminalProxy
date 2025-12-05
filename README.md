@@ -17,7 +17,7 @@ $env:http_proxy
 # 关闭代理 (清空环境变量)
 $env:http_proxy=""
 $env:https_proxy=""
-
+```
 ## 2. Windows CMD
 
 适用于旧版命令提示符 (`cmd.exe`)。
