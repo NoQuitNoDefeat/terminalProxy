@@ -1,18 +1,9 @@
-没问题！针对您截图中的 `terminalProxy` 项目的 `README.md` 文件，我为您设计了一段**模块化、清晰且包含详细注释**的内容。
-
-这段内容涵盖了 PowerShell、CMD、Bash/Zsh 以及 Git 的常用命令，您可以直接点击 GitHub 编辑框（截图中的 "Edit" 标签页）将以下内容粘贴进去。
-
------
-
-### 📋 推荐填入 README.md 的内容
-
-````markdown
-## 🚀 快速使用指南 (Quick Start)
+# 🚀 终端代理设置指南 (Quick Start)
 
 以下命令用于在当前终端会话中**临时设置**代理。
 > ⚠️ **注意**：请将示例中的端口 `10808` 修改为您实际使用的代理软件端口（常见端口如 7890, 10809 等）。
 
-### 1. Windows PowerShell
+## 1. Windows PowerShell
 适用于 Windows 10/11 默认终端或 VS Code 终端。
 
 ```powershell
@@ -20,13 +11,12 @@
 $env:http_proxy="[http://127.0.0.1:10808](http://127.0.0.1:10808)"
 $env:https_proxy="[http://127.0.0.1:10808](http://127.0.0.1:10808)"
 
-# 验证是否生效 (如果有输出则表示成功)
+# 验证是否生效 (如有输出则表示成功)
 $env:http_proxy
 
 # 关闭代理 (清空环境变量)
 $env:http_proxy=""
 $env:https_proxy=""
-````
 
 ### 2\. Windows CMD
 
