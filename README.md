@@ -7,14 +7,23 @@
 适用于 Windows 10/11 默认终端或 VS Code 终端。
 
 ```powershell
-# 开启代理 (设置环境变量)
+# ✅ 开启代理 (设置环境变量，小写 + 大写，兼容更多程序)
 $env:http_proxy="http://127.0.0.1:10808"
 $env:https_proxy="http://127.0.0.1:10808"
+$env:HTTP_PROXY=$env:http_proxy
+$env:HTTPS_PROXY=$env:https_proxy
 
-# 验证是否生效 (如有输出则表示成功)
+# ✅ 验证是否生效 (如有输出则表示成功)
 $env:http_proxy
+$env:HTTP_PROXY
 
-# 关闭代理 (清空环境变量)
+# ⛔ 关闭代理 (清空环境变量)
+$env:http_proxy=$null
+$env:https_proxy=$null
+$env:HTTP_PROXY=$null
+$env:HTTPS_PROXY=$null
+or
+# ⛔ 关闭代理 (清空环境变量)
 $env:http_proxy=""
 $env:https_proxy=""
 ```
@@ -36,14 +45,14 @@ $env:https_proxy
 适用于旧版命令提示符 (`cmd.exe`)。
 
 ```cmd
-:: 开启代理
+:: ✅ 开启代理
 set http_proxy=http://127.0.0.1:10808
 set https_proxy=http://127.0.0.1:10808
 
-:: 验证是否生效
+:: ✅ 验证是否生效
 echo %http_proxy%
 
-:: 关闭代理
+:: ⛔ 关闭代理
 set http_proxy=
 set https_proxy=
 ```
@@ -53,15 +62,18 @@ set https_proxy=
 适用于 Mac 终端、Linux 服务器或 Windows WSL。
 
 ```bash
-# 开启代理
+# ✅ 开启代理（同时设置小写/大写，兼容更多工具）
 export http_proxy="http://127.0.0.1:10808"
 export https_proxy="http://127.0.0.1:10808"
+export HTTP_PROXY="$http_proxy"
+export HTTPS_PROXY="$https_proxy"
 
-# 验证是否生效
-echo $http_proxy
+# ✅ 验证是否生效
+echo "$http_proxy"
+echo "$HTTP_PROXY"
 
-# 关闭代理
-unset http_proxy https_proxy
+# ⛔ 关闭代理
+unset http_proxy https_proxy HTTP_PROXY HTTPS_PROXY
 ```
 
 ## 4. Git 专属配置
@@ -69,11 +81,15 @@ unset http_proxy https_proxy
 如果您只需要加速 Git 操作（如 `git clone`），可以使用以下命令进行**永久配置**。
 
 ```bash
-# 设置全局代理 (所有仓库生效)
+# ✅ 设置全局代理 (所有仓库生效)
 git config --global http.proxy http://127.0.0.1:10808
 git config --global https.proxy http://127.0.0.1:10808
 
-# 取消全局代理
+# 如使用 SOCKS5 代理，可使用：
+# git config --global http.proxy socks5://127.0.0.1:10808
+# git config --global https.proxy socks5://127.0.0.1:10808
+
+# ⛔ 取消全局代理
 git config --global --unset http.proxy
 git config --global --unset https.proxy
 ```
