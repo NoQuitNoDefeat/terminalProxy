@@ -8,8 +8,8 @@
 
 ```powershell
 # 开启代理 (设置环境变量)
-$env:http_proxy="[http://127.0.0.1:10808](http://127.0.0.1:10808)"
-$env:https_proxy="[http://127.0.0.1:10808](http://127.0.0.1:10808)"
+$env:http_proxy="http://127.0.0.1:10808"
+$env:https_proxy="http://127.0.0.1:10808"
 
 # 验证是否生效 (如有输出则表示成功)
 $env:http_proxy
@@ -18,14 +18,27 @@ $env:http_proxy
 $env:http_proxy=""
 $env:https_proxy=""
 ```
+```powershell
+# 替换为您自己的代理地址和端口
+$ProxyAddress = "http://127.0.0.1:10809" 
+
+# 设置 HTTP 代理
+$env:http_proxy = $ProxyAddress
+
+# 设置 HTTPS 代理（Git 连接 GitHub 主要使用 HTTPS）
+$env:https_proxy = $ProxyAddress
+
+# 确认设置是否成功（可选）
+$env:https_proxy
+```
 ## 2. Windows CMD
 
 适用于旧版命令提示符 (`cmd.exe`)。
 
 ```cmd
 :: 开启代理
-set http_proxy=[http://127.0.0.1:10808](http://127.0.0.1:10808)
-set https_proxy=[http://127.0.0.1:10808](http://127.0.0.1:10808)
+set http_proxy=http://127.0.0.1:10808
+set https_proxy=http://127.0.0.1:10808
 
 :: 验证是否生效
 echo %http_proxy%
@@ -41,8 +54,8 @@ set https_proxy=
 
 ```bash
 # 开启代理
-export http_proxy="[http://127.0.0.1:10808](http://127.0.0.1:10808)"
-export https_proxy="[http://127.0.0.1:10808](http://127.0.0.1:10808)"
+export http_proxy="http://127.0.0.1:10808"
+export https_proxy="http://127.0.0.1:10808"
 
 # 验证是否生效
 echo $http_proxy
@@ -57,14 +70,12 @@ unset http_proxy https_proxy
 
 ```bash
 # 设置全局代理 (所有仓库生效)
-git config --global http.proxy [http://127.0.0.1:10808](http://127.0.0.1:10808)
-git config --global https.proxy [http://127.0.0.1:10808](http://127.0.0.1:10808)
+git config --global http.proxy http://127.0.0.1:10808
+git config --global https.proxy http://127.0.0.1:10808
 
 # 取消全局代理
 git config --global --unset http.proxy
 git config --global --unset https.proxy
 ```
 
-```
 
-***
