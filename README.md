@@ -1,6 +1,13 @@
+# 将 10808 替换为您的实际代理端口
+$ProxyAddress = "http://127.0.0.1:10808"
+
+# 设置 HTTP 和 HTTPS 代理
+$env:http_proxy = $ProxyAddress
+$env:https_proxy = $ProxyAddress
+
 # 💡 原理解析：环境变量如何作用于 Git
 
-太棒了！很高兴听到您通过设置环境变量成功解决了连接问题。这是一个非常经典的网络配置场景，以下是关于 `$env:https_proxy` 如何协调 Git 与代理软件工作的详细解析。
+这是一个非常经典的网络配置场景，以下是关于 `$env:https_proxy` 如何协调 Git 与代理软件工作的详细解析。
 
 ---
 
