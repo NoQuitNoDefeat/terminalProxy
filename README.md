@@ -17,6 +17,7 @@ Test-NetConnection 127.0.0.1 -Port 10809
 ```
 ## 1. Windows PowerShell
 适用于 Windows 10/11 默认终端或 VS Code 终端。
+```powershell
 # ✅ 测试sock5
 curl.exe -I --socks5-hostname 127.0.0.1:10808 https://github.com
 # ✅ 测试http
