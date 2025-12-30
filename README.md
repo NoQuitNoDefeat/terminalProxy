@@ -3,13 +3,32 @@
 以下命令用于在当前终端会话中**临时设置**代理。
 > ⚠️ **注意**：请将示例中的端口 `10808` 修改为您实际使用的代理软件端口（常见端口如 7890, 10809 等）。
 
-## 1. Windows PowerShell
-适用于 Windows 10/11 默认终端或 VS Code 终端。
+## 0. 前置：确认 V2rayN 的代理类型与端口
+
+V2rayN 常见默认端口（仅供参考，实际以你的设置为准）：
+- SOCKS5：`127.0.0.1:10808`
+- HTTP：`127.0.0.1:10809`
+
+先检查本机端口是否在监听：
 
 ```powershell
-# ✅ 开启代理 (设置环境变量，小写 + 大写，兼容更多程序)
+Test-NetConnection 127.0.0.1 -Port 10808
+Test-NetConnection 127.0.0.1 -Port 10809
+
+## 1. Windows PowerShell
+适用于 Windows 10/11 默认终端或 VS Code 终端。
+# ✅ 测试sock5
+curl.exe -I --socks5-hostname 127.0.0.1:10808 https://github.com
+# ✅ 测试http
+curl.exe -I -x http://127.0.0.1:10808 https://github.com
+```powershell
+# ✅ 开启代理（SOCKS5）(设置环境变量，小写 + 大写，兼容更多程序)
+$env:http_proxy  = "socks5://127.0.0.1:10808"
+$env:https_proxy = "socks5://127.0.0.1:10808"
+# ✅ 开启代理 （http）
 $env:http_proxy="http://127.0.0.1:10808"
 $env:https_proxy="http://127.0.0.1:10808"
+
 $env:HTTP_PROXY=$env:http_proxy
 $env:HTTPS_PROXY=$env:https_proxy
 
