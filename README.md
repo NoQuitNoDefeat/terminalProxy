@@ -14,7 +14,7 @@ V2rayN 常见默认端口（仅供参考，实际以你的设置为准）：
 ```powershell
 Test-NetConnection 127.0.0.1 -Port 10808
 Test-NetConnection 127.0.0.1 -Port 10809
-
+```
 ## 1. Windows PowerShell
 适用于 Windows 10/11 默认终端或 VS Code 终端。
 # ✅ 测试sock5
